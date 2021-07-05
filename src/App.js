@@ -1,6 +1,7 @@
 import { ListaDeNotas } from "./components/ListaDeNotas";
 
 function App() {
+// JSX returns must have only one parent tag
   return (
     <section>
       <form>
