@@ -1,20 +1,20 @@
-import { ListaDeNotas } from "./components/ListaDeNotas";
+import { Component } from "react";
+import FormularioCadastro from "./components/FormularioCadastro";
+import ListaDeNotas from "./components/ListaDeNotas";
 
-function App() {
-// JSX returns must have only one parent tag
-  return (
-    <section>
-      <form>
-        <input type="text" placeholder="Título" />
-        <textarea placeholder="Escreva sua nota..." />
-        <button>Criar nota</button>
-      </form>
-
-      <ListaDeNotas />
-
-    </section>
-
-  );
+class App extends Component{
+  render(){
+    // JSX returns must have only one parent tag
+    return (
+      <section>
+        <FormularioCadastro />
+  
+        <ListaDeNotas />
+  
+      </section>
+  
+    );
+  }
 }
 
 export default App;
