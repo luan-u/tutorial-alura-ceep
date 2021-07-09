@@ -5,18 +5,24 @@ import "./assets/App.css";
 import './assets/index.css';
 
 class App extends Component{
-  criarNota(titulo, texto){
-    console.log("uma nova nota foi criada: " + titulo + " - " + texto);
+
+  constructor(){
+    super();
+    this.notas = [];
   }
 
+  criarNota(titulo, texto){
+    const novaNota = {titulo, texto};
+    this.notas.push(novaNota);
+  }
 
   render(){
     // JSX returns must have only one parent tag
     return (
       <section className="conteudo">
-        <FormularioCadastro criarNota={this.criarNota}/>
+        <FormularioCadastro criarNota={this.criarNota.bind(this)}/>
   
-        <ListaDeNotas />
+        <ListaDeNotas notas={this.notas}/>
   
       </section>
   
