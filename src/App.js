@@ -1,6 +1,9 @@
 import { Component } from "react";
-import ListaDeNotas from "./components/ListaDeNotas";
+
 import FormularioCadastro from "./components/FormularioCadastro";
+import ListaDeNotas from "./components/ListaDeNotas";
+import ListaDeCategorias from "./components/ListaDeCategorias";
+
 import "./assets/App.css";
 import './assets/index.css';
 
@@ -33,10 +36,15 @@ class App extends Component{
     return (
       <section className="conteudo">
         <FormularioCadastro criarNota={this.criarNota.bind(this)}/>
+        <main className="conteudo-principal">
+          <ListaDeCategorias />
+          
+          <ListaDeNotas
+          apagarNota={this.deletarNota.bind(this)}
+          notas={this.state.notas}/>
+        </main>
   
-        <ListaDeNotas
-        apagarNota={this.deletarNota.bind(this)}
-        notas={this.state.notas}/>
+        
   
       </section>
   
