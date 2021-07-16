@@ -13,8 +13,14 @@ class App extends Component{
     super();
     this.state = {
       notas: [],
-      categorias: []
+      categorias: ["Trabalho", "Esportes"]
     }
+  }
+
+  adicionarCategoria(nomeCategoria){
+    const novoArrayCategorias = [...this.state.categorias, nomeCategoria];
+    const novoEstado = {...this.state, categorias:novoArrayCategorias};
+    this.setState(novoEstado);
   }
 
   criarNota(titulo, texto){
@@ -38,14 +44,14 @@ class App extends Component{
       <section className="conteudo">
         <FormularioCadastro criarNota={this.criarNota.bind(this)}/>
         <main className="conteudo-principal">
-          <ListaDeCategorias />
+          <ListaDeCategorias
+            adicionarCategoria={this.adicionarCategoria.bind(this)}
+            categorias={this.state.categorias} />
           
           <ListaDeNotas
           apagarNota={this.deletarNota.bind(this)}
           notas={this.state.notas}/>
         </main>
-  
-        
   
       </section>
   
