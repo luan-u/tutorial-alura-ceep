@@ -7,10 +7,16 @@ class ListaDeNotas extends Component{
         // if nothing is done on constructor besides calling super(props) then it can be omitted
         super();
         this.state = {notas: []}
+
+        this._novasNotas = this._novasNotas.bind(this);
     }
 
     componentDidMount(){
-        this.props.notas.inscrever(this._novasNotas.bind(this));
+        this.props.notas.inscrever(this._novasNotas);
+    }
+
+    componentWillUnmount(){
+        this.props.categorias.desinscrever(this._novasNotas);
     }
 
     _novasNotas(notas){
